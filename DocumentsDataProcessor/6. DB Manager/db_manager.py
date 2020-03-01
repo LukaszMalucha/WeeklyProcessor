@@ -75,14 +75,15 @@ dataset_documents = dataset[['topic_title','document_title', 'document_number', 
 
 
 dataset_documents = dataset_documents[dataset_documents['topic_title'] == dataset_documents['document_title']]
+dataset_documents['document_category'] = "document"
 
-dataset_documents = dataset_documents.drop(['topic_title'], axis=1)
+dataset_documents = dataset_documents.drop(['document_title'], axis=1)
+
+dataset_documents = dataset_documents.drop_duplicates()
+
 
 dataset_documents = dataset_documents.drop_duplicates()
 
-
-dataset_documents = dataset_documents.drop_duplicates()
-dataset_documents.to_csv("dataset_documents.csv",  encoding='utf-8-sig', index=False)
 
 
 
@@ -90,12 +91,25 @@ dataset_documents.to_csv("dataset_documents.csv",  encoding='utf-8-sig', index=F
 TOPICS DATASET
 """
 
-dataset_topics = dataset[['topic_title','product_identifier']]
-dataset_topics = dataset_topics[dataset_topics['topic_title'] != dataset_topics['document_title']]
+dataset_topics = dataset[['topic_title','document_title', 'document_number', 'document_version', 
+                   'document_revision', 'document_type', 'document_created_at',
+                   'document_last_edition', 'document_last_publication', 
+                   'document_revised_modified', 'document_link', 'maps_link', 
+                   'product_identifier']]
 
+dataset_topics = dataset_topics[dataset_topics['topic_title'] != dataset_topics['document_title']]
+dataset_topics['document_category'] = "topic"
+dataset_topics = dataset_topics.drop(['document_title'], axis=1)
 
 dataset_topics = dataset_topics.drop_duplicates()
-dataset_topics.to_csv("dataset_topics.csv",  encoding='utf-8-sig', index=False)
+
+
+dataset_docs = pd.concat([dataset_documents, dataset_topics])
+
+
+
+
+dataset_docs.to_csv("dataset_documents.csv",  encoding='utf-8-sig', index=False)
 
 
 
