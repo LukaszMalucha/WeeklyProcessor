@@ -13,6 +13,8 @@ def unique_elements(string):
     new_list = string.split(', ')
     new_list = list(set(new_list))
     new_list = ', '.join(sorted(new_list))
+    new_list = new_list.replace(", Not Specified", "")
+    new_list = new_list.replace("Not Specified, ", "")      
     return new_list
 
 
@@ -103,6 +105,19 @@ def unique_product_id(filename):
     
     
     """
+    MERGE BUSINESSES FOR THE SAME PRODUCT
+    """
+    dataset_business = dataset.groupby(['product_name','product_brand','product_code', 'product_category'], as_index=False).agg(', '.join)
+    dataset_business['product_business_long'] = dataset_business['business'].apply(lambda x: unique_elements(x))
+    dataset_business = dataset_business[['product_name','product_brand','product_category', 'product_code', 'product_business_long']]
+    dataset = dataset.merge(dataset_business, how = "left", on = ['product_name','product_brand','product_code', 'product_category'])
+    dataset['business'] = dataset['product_business_long']
+    dataset = dataset.drop(['product_business_long'], axis=1)
+    
+    dataset = dataset.drop_duplicates()
+    
+    
+    """
     CREATING UNIQUE IDENTIFIER FOR ALL PRODUCTS
     first part of name + created_id + first three letters of brand ...
     """
@@ -115,14 +130,21 @@ def unique_product_id(filename):
     dataset['product_code_id'] = dataset['product_code'].apply(lambda x: first_letters(str(x)))
     dataset['product_code_last'] = dataset['product_code'].str.split(',').str[-1]
     dataset['product_series_id'] = dataset['product_series'].apply(lambda x: first_letters(str(x)))
-    dataset['product_part_number_id'] = dataset['product_part_number'].apply(lambda x: first_letters(str(x)))
     dataset['product_business_id'] = dataset['business'].apply(lambda x: first_letters(str(x)))
     
     
-    dataset['product_identifier'] = dataset['product_name_first'] + "-" + dataset['product_brand_id'] +  "-" + dataset['product_code_last']  + "-" + dataset['product_series_id'] + "-" + dataset['product_part_number'] + dataset['product_business_id']            
+    dataset['product_identifier'] = dataset['product_name_first'] + "-" + dataset['product_brand_id'] +  "-" + dataset['product_code_last']  + "-" + dataset['product_series_id'] + "-" + dataset['product_business_id']                
     
-    dataset['product_identifier'] = dataset['product_identifier'].str.replace('Not Specified', 'na')
+    
+    
+    dataset['product_identifier'] = dataset['product_identifier'].str.replace('Not Specified', 'XX')
+    dataset['product_identifier'] = dataset['product_identifier'].str.replace('-Nd-', '-XX-')
     dataset['product_identifier'] = dataset['product_identifier'].str.replace(' ', '_')
+    
+    # CHECK
+#    product_id_unique = list(dataset['product_identifier'].unique())
+    
+    
     
     dataset = dataset.drop(['product_name_first'], axis=1)
     dataset = dataset.drop(['product_name_id'], axis=1)
@@ -131,26 +153,19 @@ def unique_product_id(filename):
     dataset = dataset.drop(['product_code_id'], axis=1)
     dataset = dataset.drop(['product_code_last'], axis=1)
     dataset = dataset.drop(['product_series_id'], axis=1)
-    dataset = dataset.drop(['product_part_number_id'], axis=1)
     dataset = dataset.drop(['product_business_id'], axis=1)
     
-    dataset.to_csv('documents_unique_id.csv',  encoding='utf-8-sig', index=False)
     
+    
+    dataset.to_csv('documents_unique_product_id.csv',  encoding='utf-8-sig', index=False)
+        
     
     return dataset
 
 
 
 
-data = unique_product_id('documents_cleaned_products.csv')
-    
-    
-    
-    
-    
-    
-    
-    
+dataset = unique_product_id('documents_cleaned_products.csv')
     
     
     

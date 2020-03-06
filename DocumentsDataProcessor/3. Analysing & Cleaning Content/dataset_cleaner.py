@@ -35,6 +35,7 @@ column_order = [
             "topic_title",
             "document_title",
             "document_number",
+            "document_part_number",
             "document_version",
             "document_revision",
             "document_type",
@@ -49,9 +50,9 @@ column_order = [
             "product_category", 
             "product_code",     
             "product_series",                  
-            "product_part_number",
             "business",            
-            "maps_link",            
+            "maps_link",     
+            "breadcrumb"
 #            "meta_audience_type",    ### GOT REMOVED RECENTLY        
 #             "meta_category_bas",   ## ZERO USEFUL INFO
 #             "meta_category_ductedsystems",

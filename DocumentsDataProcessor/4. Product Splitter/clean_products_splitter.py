@@ -123,8 +123,6 @@ def clean_products_splitter(filename):
     
     
     
-    ### CHANGE BACK '|' to '/'                                  
-
     dataset['product_name'] = dataset['product_name'].str.replace("|", "/")   
     
     """
@@ -157,6 +155,11 @@ def clean_products_splitter(filename):
     
     
 data = clean_products_splitter("documents_cleaned.csv")    
+
+
+# ERRATIC CHECK
+#dataset = pd.read_csv("documents_cleaned.csv", encoding='utf-8-sig')
+#erratic = dataset[dataset['product_code'].str.contains('\|')]
     
     
     

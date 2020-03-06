@@ -22,7 +22,7 @@ def part_number_cleaner(dataset):
     dataset['Part Number'] = dataset['Part Number'].str.replace(")", "")
     
     
-    dataset['product_part_number'] = dataset['Part Number']
+    dataset['document_part_number'] = dataset['Part Number']
     dataset = dataset.drop(['Part Number'], axis=1)
     
     return dataset
