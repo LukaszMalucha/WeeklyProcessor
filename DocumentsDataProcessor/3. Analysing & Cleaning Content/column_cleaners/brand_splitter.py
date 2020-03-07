@@ -11,30 +11,27 @@ import pandas as pd
 
 def brand_splitter(dataset):
     """
-    product_brand
+    brand
     IDEALLY THERE SHOULD BE ONE ROW FOR EACH COMPANY. THEY SHOULD NOT BE LISTED IN A ONE FIELD
     """
     
-    dataset['product_brand'].fillna("Not Specified")
-    dataset['product_brand'] = dataset['product_brand'].apply(lambda x: x.split(',')) 
+    dataset['brand'].fillna("Not Specified")
+    dataset['brand'] = dataset['brand'].apply(lambda x: x.split(',')) 
     
 
 
     # SPLIT LISTED COMPANIES INTO SEPARATE ROWS
-    product_brand_column = dataset.apply(lambda x: pd.Series(x['product_brand']), axis=1).stack().reset_index(level=1, drop=True)
-    product_brand_column.name = 'product_brand'
-    dataset = dataset.drop('product_brand', axis=1).join(product_brand_column)
-    dataset['product_brand'] = pd.Series(dataset['product_brand'], dtype=object)
+    brand_column = dataset.apply(lambda x: pd.Series(x['brand']), axis=1).stack().reset_index(level=1, drop=True)
+    brand_column.name = 'brand'
+    dataset = dataset.drop('brand', axis=1).join(brand_column)
+    dataset['brand'] = pd.Series(dataset['brand'], dtype=object)
     
     # REMOVE (OTHER CHOICES AVAILABLE)
-    dataset['product_brand'] = dataset['product_brand'].str.replace("other choices available", "")
-    dataset['product_brand'] = dataset['product_brand'].str.replace("(", "")
-    dataset['product_brand'] = dataset['product_brand'].str.replace(")", "")
+    dataset['brand'] = dataset['brand'].str.replace("other choices available", "")
+    dataset['brand'] = dataset['brand'].str.replace("(", "")
+    dataset['brand'] = dataset['brand'].str.replace(")", "")
     # REMOVE WHITESPACES
-    dataset['product_brand'] = dataset['product_brand'].str.strip()
-    
-    
-    dataset['product_brand'] = dataset['product_brand']
+    dataset['brand'] = dataset['brand'].str.strip()
     
     return dataset
 

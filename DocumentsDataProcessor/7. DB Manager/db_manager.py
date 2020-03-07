@@ -54,12 +54,10 @@ def get_form_id(string):
         return new_string
     return "Not Specified"
 
-dataset = pd.read_csv("documents_unique_id.csv", encoding='utf-8-sig')
 
 
+dataset = pd.read_csv("documents_unique_document_id.csv", encoding='utf-8-sig')
 
-
-products_unique = list(dataset['product_name'].unique())
 
 
 
@@ -68,20 +66,18 @@ PRODUCTS DATASET
 """
 
        
-dataset_products = dataset[['product_name', 'product_brand', 'product_category', 
+dataset_products = dataset[['product_name', 'brand', 'product_category', 
                    'product_code', 'product_series', 'business', 'product_identifier']]    
 
 
 dataset_products = dataset_products.drop_duplicates()
 
 
-## UNIQUE PRODUCT CHECK
-#products_unique = list(dataset['product_name'].unique())
-#dataset_products['duplicate'] = dataset_products.duplicated(subset=['product_name','product_brand', 'product_part_number'])
+
 
 
 dataset_products = dataset_products.replace(np.nan, "Not Specified", regex=True)
-
+unique_products = list(dataset_products['product_identifier'].unique())
 
 
 dataset_products.to_csv("dataset_products.csv",  encoding='utf-8-sig', index=False)
@@ -94,47 +90,34 @@ DOCUMENTS DATASET - DOCUMENT IS WHEN TOPIC TITLE == DOCUMENT TITLE. OTHERS ARE J
 
 dataset_documents = dataset[['topic_title','document_title', 'document_number', 'document_part_number', 'document_version', 
                    'document_revision', 'document_type', 'document_created_at',
-                   'document_last_edition', 'document_last_publication', 
+                   'document_last_edition', 'document_last_publication', 'brand',
                    'document_revised_modified', 'document_link', 'maps_link', 
-                   'product_identifier']]
+                   'product_identifier', 'document_identifier']]
 
 
 
 
 
-erratic = dataset_documents[dataset_documents['document_number'] == "Not Specified"]
-erratic_2 = erratic[erratic['document_part_number'] == "Not Specified"]
+#erratic = dataset_documents[dataset_documents['document_number'] == "Not Specified"]
+#erratic_2 = erratic[erratic['document_part_number'] == "Not Specified"]
 
-
-
-"""
-DOCUMENT UNIQUE IDENTIFIER
-"""
-
-# Doc Number + docum
 
 dataset_documents = dataset_documents[dataset_documents['topic_title'] == dataset_documents['document_title']]
+dataset_documents = dataset_documents.drop(['topic_title'], axis=1)
+
+"""
+There is 376 duplicates diffrentiating only by one day in "created_at" - keeping earliest only
+"""
+dataset_documents = dataset_documents.sort_values('document_created_at').drop_duplicates(subset="document_identifier", keep="first")
+
+
 dataset_documents = dataset_documents.drop_duplicates()
 
-
-erratic = dataset_documents[dataset_documents['document_number'] == "Not Specified"]
-erratic_2 = erratic[erratic['document_part_number'] == "Not Specified"]
-
-dataset_documents = dataset_documents.drop(['document_title'], axis=1)
-
-dataset_documents = dataset_documents.drop_duplicates()
-
-
-
-
-
-
-
-
+unique_documents = list(dataset_documents['document_identifier'].unique())
+dataset_documents['duplicate'] = dataset_documents.duplicated(subset=['document_identifier'])
+docs_duplicates = dataset_documents[dataset_documents['duplicate'] == True]
 
 dataset_documents.to_csv("dataset_documents.csv",  encoding='utf-8-sig', index=False)
-
-
 
 
 
@@ -144,7 +127,7 @@ dataset_documents.to_csv("dataset_documents.csv",  encoding='utf-8-sig', index=F
 TOPICS DATASET
 """
 
-dataset_topics = dataset[['topic_title','document_title','document_number', 'document_last_edition', 'document_link', 'breadcrumb']]
+dataset_topics = dataset[['topic_title','document_title','document_number', 'document_last_edition', 'document_link', 'breadcrumb', 'document_identifier']]
 
 dataset_topics = dataset_topics[dataset_topics['topic_title'] != dataset_topics['document_title']]
 
@@ -208,7 +191,7 @@ dataset = pd.read_csv("documents_unique_id.csv", encoding='utf-8-sig')
 
 
 dataset.product_name.str.len().max()  # 140 chars
-dataset.product_brand.str.len().max()
+dataset.brand.str.len().max()
 dataset.product_series.str.len().max()
 dataset.product_category.str.len().max()
 dataset.product_code.str.len().max()

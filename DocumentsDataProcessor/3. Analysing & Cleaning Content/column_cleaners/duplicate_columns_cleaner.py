@@ -14,7 +14,7 @@ def duplicate_columns_cleaner(dataset):
     dataset['meta_brand'] = dataset['meta_brand'].fillna(dataset['Brand'])
     dataset = dataset.drop(['Brand'], axis=1)
     
-    dataset['product_brand'] = dataset['meta_brand']
+    dataset['brand'] = dataset['meta_brand']
     dataset = dataset.drop(['meta_brand'], axis=1)    
     
     """

@@ -138,8 +138,8 @@ def compare_fields(row, brand, series):
 
 def brand_series_matcher(dataset):
     
-    dataset['product_brand'] = dataset.apply(lambda x: compare_fields(x, 'product_brand', 'product_series'), axis=1)
-    dataset = dataset[~dataset.product_brand.str.contains('Conflict')]
+    dataset['brand'] = dataset.apply(lambda x: compare_fields(x, 'brand', 'product_series'), axis=1)
+    dataset = dataset[~dataset.brand.str.contains('Conflict')]
     
 
     return dataset

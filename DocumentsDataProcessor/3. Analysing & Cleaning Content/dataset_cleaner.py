@@ -46,7 +46,7 @@ column_order = [
             "document_revised_modified",
             "document_link",
             "product_name",
-            "product_brand",
+            "brand",
             "product_category", 
             "product_code",     
             "product_series",                  

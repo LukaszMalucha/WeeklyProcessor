@@ -29,6 +29,7 @@ def clean_products_splitter(filename):
     dataset['product_name'] = dataset['product_name'].str.replace("V-3766, V-3966 and V-4332 Brass Pneumatic Flare Valves, 1/2 in. Two-Way and Three-Way", "V-3766 Series  Brass Pneumatic Flare Valves - 1/2 in. Two-Way and Three-Way, V-3966 Series  Brass Pneumatic Flare Valves - 1/2 in. Two-Way and Three-Way, V-4332 Series  Brass Pneumatic Flare Valves - 1/2 in. Two-Way and Three-Way")
     dataset['product_name'] = dataset['product_name'].str.replace("Repair Parts for Use with V-3755 Normally Open Valves, 1/2 through 2 in.", "Repair Parts for Use with V-3755 Normally Open Valves - 1/2 through 2 in." )  
     dataset['product_name'] = dataset['product_name'].str.replace("EAS / Accent Detacher", "EAS|Accent Detacher" )
+    dataset['product_name'] = dataset['product_name'].str.replace("D-4070, Damper Actuator", "D-4070 Damper Actuator" ) # FROM DOC ID CHECK
     dataset['product_name'] = dataset['product_name'].str.replace("—", "-" )
     
     
@@ -149,7 +150,7 @@ def clean_products_splitter(filename):
     dataset['product_name'] = dataset['product_name'].str.strip()    
     
     
-    dataset.to_csv("documents_cleaned_products.csv",  encoding='utf-8-sig', index=False)
+    dataset.to_csv("documents_splitted_products.csv",  encoding='utf-8-sig', index=False)
     
     return dataset
     
