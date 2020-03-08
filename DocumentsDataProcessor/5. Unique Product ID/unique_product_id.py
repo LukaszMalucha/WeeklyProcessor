@@ -157,7 +157,7 @@ def unique_product_id(filename):
 
 
 
-#dataset = unique_product_id('documents_splitted_products.csv')
+dataset = unique_product_id('documents_splitted_products.csv')
 #
 #unique_products = list(dataset['product_identifier'].unique())
     

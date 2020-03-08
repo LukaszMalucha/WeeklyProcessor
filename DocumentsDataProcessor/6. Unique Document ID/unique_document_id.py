@@ -87,6 +87,15 @@ def unique_document_id(filename):
     
     
     """
+    REMOVE "Part No." from product name columns
+    """
+    
+    dataset['document_number'] = dataset['document_number'].str.replace("Part No. ", "")
+    dataset['document_part_number'] = dataset['document_part_number'].str.replace("Part No. ", "")
+    
+      
+    
+    """
     THERE ARE FORM DOCUMENTS THAT HAVE NO METADATA BUT FORM ID IN PARETHESES
     THAT ID SHOULD BE DOCUMENT NUMBER
     """

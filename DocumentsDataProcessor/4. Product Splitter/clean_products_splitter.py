@@ -5,6 +5,9 @@ Created on Sat Feb 29 12:58:23 2020
 @author: LukaszMalucha
 """
 
+import pandas as pd
+import numpy as np
+
 def to_replacer(string):
     """Helper function that replace 'to' with ' - ' for prod collections only"""
     if len(string) < 16:
@@ -14,7 +17,7 @@ def to_replacer(string):
         
 
 
-import pandas as pd
+
 
 def clean_products_splitter(filename):
     """Clean and split product names to separate rows"""
@@ -31,6 +34,30 @@ def clean_products_splitter(filename):
     dataset['product_name'] = dataset['product_name'].str.replace("EAS / Accent Detacher", "EAS|Accent Detacher" )
     dataset['product_name'] = dataset['product_name'].str.replace("D-4070, Damper Actuator", "D-4070 Damper Actuator" ) # FROM DOC ID CHECK
     dataset['product_name'] = dataset['product_name'].str.replace("—", "-" )
+    
+    """
+    Fixing names to avoid unnecessary duplication with product id. 
+    """
+    
+
+    dataset['product_name'] = dataset['product_name'].str.replace("CPO", "Central Plant Optimization" ) # FROM DOC ID CHECK
+    
+    # Detailed Procedures - Advanced Graphics Application Installation Instructions
+    dataset['product_name'] = np.where(dataset['document_link'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "AGA", dataset['product_name'])
+    dataset['product_code'] = np.where(dataset['document_link'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "MS-ADVGRF-0, MS-ADVGRF-0G, MS-ADVGRF-6, MS-ADVGRF-6G, MS-EXPORT-0G, MS-EXPORT-6G", dataset['product_code'])
+    dataset['product_category'] = np.where(dataset['document_link'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "Software Application", dataset['product_category'])
+    dataset['document_number'] = np.where(dataset['document_link'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "LIT-12011525", dataset['document_number'])
+    dataset['document_part_number'] = np.where(dataset['document_part_number'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "LIT-12011525", dataset['document_part_number'])
+    dataset['document_version'] = np.where(dataset['document_version'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "10.0", dataset['document_version'])
+    
+    
+    
+    
+    
+    
+    """
+    Cleaning "Not Specified" names
+    """
     
     
     """
