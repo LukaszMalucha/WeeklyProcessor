@@ -3625,8 +3625,8 @@ TrueAlert Weatherproof Appliance Back Box,Autocall,Not Specified,Not Specified,N
 Unit Wiring,YORK,Not Specified,Not Specified,Not Specified,Not Specified,56b4524800932b481f9b57e601086a65c7c6bd3f
 Field Connections,YORK,Not Specified,Not Specified,Not Specified,Not Specified,4afc1675a54b38cc2facf56607aefd5bde91f4e0
 and Field Control Modifications for Model CYK Chillers with Liquid Cooled Solid State Starter or Remote Starter,YORK,Not Specified,Not Specified,Not Specified,Not Specified,2106b777a28a7453b4708607856068eca9363982
-VAV Box Balancing Sensor,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,98384c1ad2752bbb1dde9058239c0816b02040b6
-VRF Smart Gateway,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,3df6dea828f7f4501a08b92e0a6277f7b85313aa
+VAV Box Balancing Sensor,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b2f869b823ab3def62da0ae63ddcb9d0f8504d80
+VRF Smart Gateway,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,a8887da6174d1178782160b01e6ec0cdf6e92d7c
 VSD Retrofit For Centrifugal Liquid Chillers,YORK,Not Specified,Not Specified,Not Specified,Not Specified,3601acc0cae59f17dccb2e72988ea99043e8fe98
 VSD Retrofit,YORK,Not Specified,Not Specified,Not Specified,Not Specified,8d5b777aa0ae6ccc879d11eb7f4c2f51917e76b6
 Millennium Variable Speed Drive CP-CT,YORK,Not Specified,Not Specified,Not Specified,Not Specified,a336cc1b265e09fca5f69e41c241fad065dd4f98
@@ -5415,9 +5415,9 @@ Multi-Stage Temperature and Humidity Controllers,Johnson Controls,Temperature an
 2084-9023 Phone Callout Module,Simplex,Not Specified,Not Specified,Not Specified,Not Specified,8cd76b8b3fe34000e27d2f707f0a437185ec0bdf
 4009 Fiber Optic Link Option,Simplex,Not Specified,Not Specified,Not Specified,Not Specified,ccc185cd3b6a05899417b2ff62639d253dc7109c
 4009 IDNet NAC Extender 4009A,Simplex,Not Specified,Not Specified,Not Specified,Not Specified,b19b935777dead591ba80e775dacc43adacee8a4
-4009-9807 NAC Option Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,2eafaf9f4ef03a3b46d8b81b7ab96a9fa410f116
-4009-9808 NAC Class A Adapter Option Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,2a5828ba4f394d76b2e8dec3e06ce02e77bb84f6
-4009-9809 IDNet Repeater Option Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,660c1c68bc0f7ec9a408671ce3b6efd23f6c7be4
+4009-9807 NAC Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b27d89be2bc0b07466b84bef38c778b65befb387
+4009-9808 NAC Class A Adapter Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,542b63de3c824ba895cd9a93c8db08c8047d48fd
+4009-9809 IDNet Repeater Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,77a6d1391b27fcc9756e01c5b97fd950566b6c20
 "4020/4100+/4120/4010ES Installing Ferrite Beads with ""Wired"" MEDIA Cards",Simplex,Not Specified,Not Specified,Not Specified,Not Specified,5c289919e0dbb85c6960fee6de9d9c7e0ea199e4
 4090-9001 Supervised IAM,Simplex,Not Specified,Not Specified,Not Specified,Not Specified,d0ee390a4bc07437f19ffb8a1c86610ae15cfd43
 4090-9101 and 4090-9106 Monitor ZAMs,Simplex,Not Specified,Not Specified,Not Specified,Not Specified,e472a2c4a4105eef35d937061dd82c4ff3b82143
@@ -5459,44 +5459,43 @@ BERT Smart Plugs,Metasys,Supervisory Device,Not Specified,Not Specified,Building
 DarkNode Panel,Metasys,Control Panel,DARKNODE-PNL-0,Not Specified,Building Automation and Controls,289ce5226277917a8aa32ac48b665372b5043d73
 NAE5510-ER2 Secure Control Panel Assembly,Metasys,Control Panel,MS-NAE5510-ER2,Not Specified,Building Automation and Controls,880d0fd5756a3b9f4bc0310699f7817f9b8439fc
 NAE-S Secure Network Engine,Metasys,Supervisory Device,MS-NAE551S-2,Not Specified,Building Automation and Controls,f9d46dd4c3bca8ebc8f633fd1b437fa2f9ea4e56
-100% Outside Air Dual Duct OADD Air Handling Unit AHU,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,2df4236a49a632bed8968549364e86a406c1fcdf
-Fan Coil Unit FCU Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,04187507b9d4b312423f0db65449d20d9cdc0402
-Heat Pump HP Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,daa87fc30bdb907937fbb1dc28a57123fda8d0eb
-Unit Ventilator UV Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,19b2bc08434dc1a7cc5e122323becdb5c1f63b77
-Rooftop Top Unit RTU Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,c18b102bf08789ca212d5ee01bd5ef49efd78157
-Commercial Zoning Control Package,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,3fe25a78a8847962089eeef59aba83ecd29ca807
-Facility Explorer Administrator Tool for Validated Environments User’sIntroduction to Facility Explorer Administrator Tool for Validated Environments,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,d05b6433a001172fcaa13f4c6480e27812e8eda6
-Facility Explorer Asset Protection Products,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,437f38b3cd40cc21ffbca1bac8877984bed1f665
-Facility Explorer for Validated Environments FX VE,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,6809867370b6c3283d78a2ff053e85d9eed1122a
-Facility Explorer Network Room Modules,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,09cd43dc44485c7c9d99fb8764377328a6781a9c
-Facility Explorer One-to-One Wireless Room Sensing System,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,20ae9f33a1b4e41a2d6fe135140414dfaf088d19
-Facility Explorer Supervisory Products Networking,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e2d135c7a192de261cd93f78517ea914fc091d15
+100% Outside Air Dual Duct OADD Air Handling Unit AHU,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,9cd5b276629c675b782b8008fe719d996b7923cd
+Fan Coil Unit FCU Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,6471b691e11644d71c75d265fe8b653829d7ac5d
+Heat Pump HP Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e3ed231e7a10f355a4b90f43b40637f51fc0e687
+Unit Ventilator UV Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,35b603ec19300d7d699b07db6a64a1a4685d91e4
+Rooftop Top Unit RTU Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,eac5a35f71e7cdb78215ca54823e44cd7fbb1372
+Commercial Zoning Control Package,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5a6d9a96c205dff2b5293c858d17aae79cf76694
+Facility Explorer Administrator Tool for Validated Environments User’sIntroduction to Facility Explorer Administrator Tool for Validated Environments,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,41db9f92bc6cd780900674c5006b73629663df10
+Facility Explorer Asset Protection Products,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,11486c9bee2ce6da3ee72159efd992174636e220
+Facility Explorer for Validated Environments FX VE,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,304b5a0a7403ed781ca8663b4c4cc23a474c08df
+Facility Explorer Network Room Modules,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,77edf86826c9d8a4fc69f514644608423f9c3b35
+Facility Explorer One-to-One Wireless Room Sensing System,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,92a58d98cf2d213ef64ae3b7fedd673abd1757fb
+Facility Explorer Supervisory Products Networking,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5f19465fcc58c7b9e264f9e4989c3c89c4b6242f
 Facility Explorer: FXZAN Zone Controller and Actuator Assembly,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,52261c4e01f44ba1883ce9a7e9e67b0c32003666
 Facility Explorer: LP-FXZAN13-0 Zone Controller and Actuator Assembly,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,96151715054b8509200c9e22b2a2f6ee74156215
-FX Input/Output I/O Modules – XM07 and XM14,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,d621c7809faad245af26f27c2573cc3e3c7d4922
-FX Server,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,3fb957a42cede5017cfbfff050f79527daead05f
-FX Supervisory Controller GPRS Modem Option Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,bf92e7112515175eba3025bb1cb0c555c3dc9b73
-FX Supervisory Controller LON Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,37188749d98d66be4635e5eac23e137ba7f19f30
-FX Supervisory Controller RS-485 Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,56c30a9228b79068c701832df59a1a2cb0bcea23
-FX Supervisory Controller Sedona Framework Option Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,795ad9ceb1073dc1fa1044803e679d8ec051cf86
-FX Supervisory Controller Wireless TEC Option Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,31ae92a6ee09502a82b3036ff98d32423cd30ea7
-FX Supervisory Controllers Modem Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,6d0efe62ecf7676de2bfd420317d45bb63e2390c
-FX Supervisory Controllers RS-232 Card,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,d2049583f3e23e5fdb6dcd346c0d04e691c43a05
-FX Tools Express,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,d188193e6e73f23b456556a71e31ae19ace62528
-FX Tools Express Software Package,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,9689b1a4cb829de3679b096fe264c28a07cac729
-FX Tools Pro Software Package,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,022b8236acc4ce557c6872fbc1b06629491723e4
-FX Tools Software Package - FX Builder,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,5e9e64afa8af46dc0b16d38960ae6277527aba83
-FX TOOLS Software Package FX Builder Express,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,e5013f408002288686aadc94f1986814c63ecfcb
-FX Tools Software Package--FX CommPro BACnet,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,3bb67338390870ef765813da5a0073f2764360cb
-FX Tools Software Package--FX CommPro LON,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,55ca983ad3481e3881cc715b334f7d341e673fa8
-FX Tools Software Package--FX CommPro N2,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,63e98077492618dddbcab980772cfb6920173b92
-FX VMA Variable Air Volume VAV Box Controller,Commercial Zoning Control Packager,Not Specified,Not Specified,Not Specified,Not Specified,78fbd476562c3b360a39a0f53d5b388f932f0e97
-FX-DIS Local Controller Display,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,66342175505cc02681d7578a6fba54f8cebcc2f3
-FX-PC Series Controllers Enumeration Sets,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,0c42bbc1d1694270ed3ea457a77f9390fcccab8b
-FX-PCA Standard Control Panel Assembly with MAP Gateway,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,013e9af7d45e7400d66eca260798c897de56179d
-FX-PCA/FX-PCX Standard Control Panel Assembly,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5e5e6900c3994cef23f0e2455c6e4f4cd756e5dd
-FX-PCG/FX-PCX Standard Control Panel Assembly,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,abd2df021dc8bf168935433617fd3c52b719dbe0
-FX-PCT,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,54bfa070211dfef52f27c53ef405cb533771b943
+FX Input/Output I/O Modules – XM07 and XM14,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,861b0e4b2303e4fcbcea647fa2fb35a8e5c8ac39
+FX Supervisory Controller GPRS Modem Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,4f4e390395cf7cdce9754acb95d5ec89926e4100
+FX Supervisory Controller LON Card,Facility Explorer,Supervisory Device,Not Specified,Not Specified,Not Specified,bd91b72e3707b703bba3a45b1fc44d0d56e2f352
+FX Supervisory Controller RS-485 Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1d3ded2cf9c07aae5737aa05b383d353ba386474
+FX Supervisory Controller Sedona Framework Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,6033444c3bd26f2c2075abba802ee5ec6f0ace9c
+FX Supervisory Controller Wireless TEC Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1fb3a59418cd3b6b8b336f9d719a779d92a21331
+FX Supervisory Controllers Modem Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,472ef60a6517837aa70755f0b832753bdf0e0461
+FX Supervisory Controllers RS-232 Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,dcfea82fc6d5cb54cab56118d3d41a0405a81276
+FX Tools Express,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,9ba82cbaa53beb22380f8198e816c23607090b07
+FX Tools Express Software Package,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,900723eb0830916fae02a1e3b375c9d7bb259edc
+FX Tools Pro Software Package,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,87423d9cbd83e585e992f1b0a1215c30390d36d6
+FX Tools Software Package - FX Builder,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,328b5bd898ed0a6f1f43b6f1191bd935f668e0e6
+FX TOOLS Software Package FX Builder Express,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,203a2d4a7aa01bdea5191fe0ce356ff625ad12f7
+FX Tools Software Package--FX CommPro BACnet,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,20117337373ba947e8df4619e3acafe912b690f1
+FX Tools Software Package--FX CommPro LON,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5829cb2b4fd5f5eaf265c146620fc06eed4d54fd
+FX Tools Software Package--FX CommPro N2,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,77ed5d740022abe14d2e4f98f4d04816110e47c1
+FX VMA Variable Air Volume VAV Box Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,556dfb45fa4f234f86244a4e15aa2ba79f181c93
+FX-DIS Local Controller Display,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,fe94f379f2a733e7ea45b461277e640658eb7b07
+FX-PC Series Controllers Enumeration Sets,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e374aebb97c1b658e597b31253fd4ce7f85a3151
+FX-PCA Standard Control Panel Assembly with MAP Gateway,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,235bca89a050924e361648b2e0810b4c22429e40
+FX-PCA/FX-PCX Standard Control Panel Assembly,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,cb12838a58766be2fe55a465e4f5d91528ac73fa
+FX-PCG/FX-PCX Standard Control Panel Assembly,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,d407a0e53f071db4a1174381a128ae393126487f
+FX-PCT,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,556f10e7fb5f726f3bf507a3b1c38bec59879a77
 FX-WRZ7850 Receiver for One-to-One Wireless Room Sensing Systems,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,671e34be19f0c1a43fbec5adfed88afb098240a7
 FX-WRZPTR00 Temperature Sensor Probe Assembly,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,42d4ab19dd163db145f3eca50fdf124c917ab023
 FX-WRZRMT10K-0 Wireless Remote Temperature Transmitter,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,1ff775bc7bf3742ab8cf366d591d3167ccb2e3fc
@@ -5507,38 +5506,33 @@ FX-WRZSTRxx-0 Series Wireless Refrigerator/Freezer Temperature Transmitter and P
 FX-WRZTTB00-5 Handheld Temperature Room Sensor,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,bd9913d80d41e111aaf39ab84ac2bfa3138f5770
 FX-ZFR Series Wireless Field Bus System,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,b25ab34d0fb9c734860c643181677d184692631a
 FX-ZFR1810 Wireless Coordinator Control Panel Assembly,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,ef1863b4a26382d17af5dbcadeaa5e03a874d697
-FX05 Advanced Field Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,d694507fd6daf7622bf57168010a0a9ffb7f654f
-FX05 Standard Control Panel Subassembly for a 12 in. x 16 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,3f257a82002797ea5b4bc9a24234eb3b36b17045
-FX06 Field Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1e97903456c01db94bd2b27667e53565ea4a0608
-FX07 Field Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,2cee5575fb5d4078abf268e7032051f96cf1e16f
-FX14 Standard Control Panel Subassembly for a 24 in. x 36 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,78a420892d60ea8d82bbeaddfd0aa4c168e070d2
-FX15 Standard Control Panel Assembly Mounted in a 24 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,34d0d8b9b4cddc9613d2e738853798474057392c
-FX15 Standard Control Panel Assembly Mounted in a 24 in. x 36 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8c7b84f253368c8c27c397348c512a96c41a91d9
-FX15 Standard Control Panel Subassembly for a 20 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,cbfef8617b0e60991e073ab14a5809a2e69415bc
-FX15 Standard Control Panel Subassembly for a 24 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8370884d0f6ff339932b3667fcf39000aeff4745
-FX15 Standard Control Panel Subassembly for a 24 in. x 36 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b610a39598b6f21c64b3def60096741db02b313e
-FX16 Standard Control Panel Assembly Mounted in a 20 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8b96d984caa13a99e48b70824d6dec45575c4956
-FX16 Standard Control Panel Assembly Mounted in a 24 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5eec725ff5d47b95076ed365b06d7a4f908394a0
-FX16 Standard Control Panel Assembly Mounted in a 24 in. x 36 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b303abb8948aa3431569b753a03cde8f46132608
-FX16 Standard Control Panel Subassembly for a 20 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,fb18b110d722ecaa94f719846d97f993baf54923
-FX16 Standard Control Panel Subassembly for a 24 in. x 24 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8dc0231bbf2589cee8ed858cfacb8d4a7925e6ae
-FX20/FX60 Standard Control Panel Assembly Mounted in a 12 in. x 16 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,4c0ae37ace1c9feeee23e78a6a8c657cd3556b77
-FX20/FX60 Standard Control Panel Assembly Mounted in a 12 in. x 36 in. Enclosure,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,ce82d86892045bbc8e98e3b53c8faf50b5c2de31
-FX20/FX60 Supervisory Controllers,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,c8be97c00ba3f429da37ffb795e96c8dd013f904
-FX22/FX62 Supervisory Controller GPRS Modem Option Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,76c2426bb0d43e9c03715a466106ede4742627d3
-FX22/FX62 Supervisory Controllers,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1390181ea5727d3b4860272b9365ccd27dabf038
-FX40,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,d397177ef171dee852a2dc2f414285803466fe71
-FX40 Supervisory Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,cfc4e34877d5a683b715b4889a116ea82b6edd56
-FX70 - Wi-Fi Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,17de84988c48193b0ad23517618d8271c9cbb4c4
-FX70 Supervisory Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,6f46bccd38392f2579c8804e33873f925693d0af
-FX80 Supervisory Controller Control Panel Assembly,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,43d2b1bdaf3bf89f0d93944775a599a59e2be636
-FXRIO16 Remote Input/Output I/O Module,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,2fd1f584c75c64701ff3b73257771ab5f9c1328f
-FXVMA,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,694bdc1d708b7485ccc26acff960baa953d57615
-FXVMA Variable Air Volume VAV Box Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5cff437abe8caf369952c20c487f6e6bb8290ace
-FXVMA VAV Box Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,44df71d9c0b665cea40c1aa3510483f0a8bb37bc
-Hot Water System – Heat Exchanger Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b3a504696760ef66508e8f7760f358bfc8bd6e09
-Hot Water System-Boiler Controller,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,6ab0a2b785b4e12d8d3335921f6a4d6f2ca15b31
-LP-KIT006-xxx Room Command Modules for FXs,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,50f5374c9b40899e16370e99eb8fcd63f1ab9cc5
+FX05 Advanced Field Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,5eb7cf04f2927b9eb7cb7f9d08545014f3d85ccf
+FX05 Standard Control Panel Subassembly for a 12 in. x 16 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,f9c5419ced165dce5a1ee931c809a259a73d9aa9
+FX14 Standard Control Panel Subassembly for a 24 in. x 36 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e82c4c30a35849b38e653f76f560d502265d2acb
+FX15 Standard Control Panel Assembly Mounted in a 24 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,078d054f3dc938ee9e60d54d4f5ceff7c7c25369
+FX15 Standard Control Panel Assembly Mounted in a 24 in. x 36 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8e888952c8c4840a2a12ad0ddef9d00c27a1f2e8
+FX15 Standard Control Panel Subassembly for a 20 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,0f44241fe11db162c688df892c3485d37a5dbf4d
+FX15 Standard Control Panel Subassembly for a 24 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,df74b7901451ffd00d05d0f5c58efec3ed9f3006
+FX15 Standard Control Panel Subassembly for a 24 in. x 36 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,534819ef8f9c2f2b6fd08394f20674631c7ceb5f
+FX16 Standard Control Panel Assembly Mounted in a 20 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1bf37870e05974b15da72fb5b107a65abaf1268f
+FX16 Standard Control Panel Assembly Mounted in a 24 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,8e02948fc56de0997b220e8a5ef22b9f4030dba0
+FX16 Standard Control Panel Assembly Mounted in a 24 in. x 36 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,459eb4855157811d0c45a90771decf8cf9dccd9f
+FX16 Standard Control Panel Subassembly for a 20 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,549c12393987c5f7fb2bd9c46be3fe55f2e266c6
+FX16 Standard Control Panel Subassembly for a 24 in. x 24 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,eed21724f5b05ecc22ae0f8eea9c7c38b65fa722
+FX20/FX60 Standard Control Panel Assembly Mounted in a 12 in. x 16 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,fe3020443c5868769407820aafaa16f85c13d425
+FX20/FX60 Standard Control Panel Assembly Mounted in a 12 in. x 36 in. Enclosure,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,fd7c689fbacde8e5e004ee2f7ee2e2de68e0babf
+FX20/FX60 Supervisory Controllers,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,0b1cff65c8eca49939951574cd75a26bc4ef04ec
+FX22/FX62 Supervisory Controller GPRS Modem Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,667b86d353ebf2567feb46a36894e2e31073dcdd
+FX22/FX62 Supervisory Controllers,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,b57121a764e6c456baca3c2fd6a1b3a0a4a22b24
+FX40,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,01ce293226da7bd483a1be4484c9e28d1d047529
+FX70 - Wi-Fi Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,91c6f3cede48cf3b8a6cebc718cc43edbaab1935
+FX80 Supervisory Controller Control Panel Assembly,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,0915293e1f4930cb8aa773a3cbada08499d73b3d
+FXRIO16 Remote Input/Output I/O Module,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,51750b191fb095326f94995a73156840a67037d0
+FXVMA,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,50e66021a410875a67763930ee80565092ea5b26
+FXVMA Variable Air Volume VAV Box Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e08da7bb3258cab92ede5b8ca05fdcae8907ec7c
+Hot Water System – Heat Exchanger Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,448724f96a4af51044920f3fbae9b93490c29758
+Hot Water System-Boiler Controller,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,ac87dc71a73f84ebcf2d3a20923ba6c69e333239
+LP-KIT006-xxx Room Command Modules for FXs,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,aa7b2d9d16cb628506e64f2c52ff6273935f7666
 LX Application Specific,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,e66aad1b46c2b3112177efc8dc56af0b6647e5ee
 LX Display and Scheduler,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,620114cd2d4871c34b6b2370e843b88c706228fa
 LX Display,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,f618c68f0cf8e62e094cee91029717356c1a8bb1
@@ -5586,15 +5580,15 @@ LX-VAVCF-1 LX Series Programmable VAV Controllers,Johnson Controls,Not Specified
 LX-VAVLF-1,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,1d08ae92e7996b83469f5ffbed7255099b5ee8ea
 LX-VAVLN-1,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,d7b8c532dca5e2bc6e63a3c9a2d066a75f4a2473
 and LX-VVTLF-1 LX Series Variable Air Volume VAV/Variable Volume and Temperature VVT Controllers,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,4ad76e244af70c6cbb34e8773c02a6867c7ef320
-MD20 Master Display,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,fd933f7441208cca55ad1be0d07775be21c7150c
+MD20 Master Display,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,dafbf8f02fc06b16b582440d3df189ef2457032d
 Mixed Air Dual Duct MADD Air Handling Unit AHU,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,e4bd3a7dede6fadf6255fb867d74d324bd55fbaf
 Mixed Air Single Duct Air Handling Unit MASD AHU Controller,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,4dda934193d142fb943e54993d5f21652bc255cc
-NDIO16,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,78b6d145f6ec7b844ff303b3fb99850caeb79bde
-NDIO34,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,4fda637fed3e75ce02092bbf176f6e79fe00627e
-Network Room Module,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,764208a9315e5fb405e59658a00539c2d1a43860
-Network Room Modules,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,27590202087bcaf492c8ad1be8ce048b4aa56505
-Outside Air Single Duct Air Handling Unit OASD AHU,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,79d451ca4a3da0c841b857d95a15a2299e04655d
-Static RAM SRAM Option Card,Facilty Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1e069c8fc29e9d51bbb866b6d8b437ce833d9325
+NDIO16,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,9db1f0035248c9d237c6bd294ef17253b328c944
+NDIO34,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,e35dbe6db8ec20a0277118bd91b4c10579e1e9f8
+Network Room Module,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,35c2030517d5d2fa63d71ad9acf2f846cbbe882c
+Network Room Modules,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,09c5a731be77b0854b76b610eaf7882e997385b1
+Outside Air Single Duct Air Handling Unit OASD AHU,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,a96d883648dba85c7c5f1971e72e5b4790d0320d
+Static RAM SRAM Option Card,Facility Explorer,Not Specified,Not Specified,Not Specified,Not Specified,1518a4ed5aaa10c371e3265db7fdfc21b9a54634
 System License Information,BCPro,Not Specified,Not Specified,Not Specified,Not Specified,4d216dcd55d5a2252ea0198c6b95d0e30322f5a7
 WNC1800 Wireless Network Coordinator Gateway,Metasys,Wireless Device,Not Specified,Not Specified,Not Specified,3b1f8fa5f061bcc63da0ff2b9534a590184f2518
 Y99AU-2 Ignition Control Service Kit,Johnson Controls,Not Specified,Not Specified,Not Specified,Not Specified,a2c57f24f42e0773c8a9555c1dead505eb05f69e

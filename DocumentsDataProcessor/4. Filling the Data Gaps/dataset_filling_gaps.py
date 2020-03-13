@@ -442,36 +442,36 @@ def fill_brand_and_product_gaps(filename):
     
     
     
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Air Handling Unit")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Commercial Zoning")), "Facilty Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Air Handling Unit")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Commercial Zoning")), "Facility Explorer", dataset['brand'])
     
     
     
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Fan Coil Unit")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX ")), "Commercial Zoning Control Packager", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Fan Coil Unit")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX ")), "Facility Explorer", dataset['brand'])
     
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX ")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX-")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX0")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX1")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX2")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX4")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX7")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX8")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FXR")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FXV")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Hot Water System")), "Facilty Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX ")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX-")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX0")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX1")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX2")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX4")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX7")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FX8")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FXR")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("FXV")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Hot Water System")), "Facility Explorer", dataset['brand'])
     
     
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("LP-KI")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("MD20")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Network Room Module")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("NDIO")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Option Card")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Rooftop Top Unit")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Unit Ventilator (UV) Controller")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("VAV Box Balancing Sensor")), "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("VRF Smart Gateway")), "Facilty Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("LP-KI")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("MD20")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Network Room Module")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("NDIO")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Option Card")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Rooftop Top Unit")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Unit Ventilator (UV) Controller")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("VAV Box Balancing Sensor")), "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("VRF Smart Gateway")), "Facility Explorer", dataset['brand'])
     
     
     
@@ -499,7 +499,7 @@ def fill_brand_and_product_gaps(filename):
     
     
     
-    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Facility Explorer ")), "Facilty Explorer", dataset['brand'])
+    dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Facility Explorer ")), "Facility Explorer", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Champion ")), "Champion", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Coleman ")), "Coleman", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Fraser-Johnston ")), "Fraser-Johnston", dataset['brand'])
@@ -510,8 +510,8 @@ def fill_brand_and_product_gaps(filename):
     
     
     ## MANUAL FIX
-    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/TCNCraBPZLaItV3Ek6xG2g", "Facilty Explorer", dataset['brand'])
-    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/HnZ14~UAOaaIZVs73ZjUPQ", "Facilty Explorer", dataset['brand'])
+    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/TCNCraBPZLaItV3Ek6xG2g", "Facility Explorer", dataset['brand'])
+    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/HnZ14~UAOaaIZVs73ZjUPQ", "Facility Explorer", dataset['brand'])
     
     
     
@@ -559,7 +559,7 @@ data = fill_brand_and_product_gaps("documents_cleaned.csv")
 
 
 
-
+brands = list(data['brand'].unique())
 
 
 
