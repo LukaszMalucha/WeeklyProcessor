@@ -18,10 +18,10 @@ def to_replacer(string):
 
 
 
-
 def clean_products_splitter(filename):
     """Clean and split product names to separate rows"""
-    
+
+
     dataset = pd.read_csv(filename, encoding='utf-8-sig')
     
     """
@@ -39,7 +39,7 @@ def clean_products_splitter(filename):
     Fixing names to avoid unnecessary duplication with product id. 
     """
     
-
+    
     dataset['product_name'] = dataset['product_name'].str.replace("CPO", "Central Plant Optimization" ) # FROM DOC ID CHECK
     
     # Detailed Procedures - Advanced Graphics Application Installation Instructions
@@ -49,7 +49,6 @@ def clean_products_splitter(filename):
     dataset['document_number'] = np.where(dataset['document_link'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "LIT-12011525", dataset['document_number'])
     dataset['document_part_number'] = np.where(dataset['document_part_number'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "LIT-12011525", dataset['document_part_number'])
     dataset['document_version'] = np.where(dataset['document_version'] == "/reader/buliiLtedMGECJVp1GuREA/sg1SOXR6M4JUqOR42EM_YQ", "10.0", dataset['document_version'])
-    
     
     
     
@@ -150,8 +149,11 @@ def clean_products_splitter(filename):
     dataset['product_name'] = dataset['product_name'].str.replace("UltraMax Stand-Alone/EuroMax M2K EAS System", "UltraMax Stand-Alone M2K EAS System, UltraMax EuroMax M2K EAS System")
     
     
+    #z = dataset[dataset['product_name'].str.contains("\|")]
     
-    dataset['product_name'] = dataset['product_name'].str.replace("|", "/")   
+    dataset['product_name'] = dataset['product_name'].str.replace("\|", "/")   
+    
+    
     
     """
     SECOND SPLIT AFTER CLEANING 
@@ -162,32 +164,84 @@ def clean_products_splitter(filename):
     dataset = dataset.drop('product_name', axis=1).join(product_name_column)
     dataset['product_name'] = pd.Series(dataset['product_name'], dtype=object)
     
+    
+    
     # Final cleaning
     dataset['product_name'] = dataset['product_name'].str.replace("J06-12ZB", "J06 - J12ZB")
     dataset['product_name'] = dataset['product_name'].str.replace("ZN-06 THRU -12", "ZN-06 - ZN-12")
     dataset['product_name'] = dataset['product_name'].str.replace("ZNT06-T12", "ZNT06 - ZNT12")
     dataset['product_name'] = dataset['product_name'].str.replace("ZQ04-06", "ZQ04 - ZQ06")
     
+    
+
+    
     """
     REPLACE 'TO' with ' - ' in product name collections
     """
     dataset['product_name'] = dataset['product_name'].apply(lambda x: to_replacer(x)) 
     
+    
     # REMOVE WHITESPACES
-    dataset['product_name'] = dataset['product_name'].str.strip()    
+    dataset['product_name'] = dataset['product_name'].str.strip()
+    
+    
+    # FILL EMPTY SPOTS 
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("Series M")), "Series M - Turbomaster Compressor", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCIV0590-1649")), "YCIV0590-1649 Style A 50 Hz Air-Cooled Screw Liquid Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("OM Centrifugal Compressor")), "OM Centrifugal Compressor", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("OM TurboMaster")), "OM TurboMaster", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("OM Turbomaster")), "OM TurboMaster", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("Style A Remote Chiler")), "Style A Remote Chiller", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("VSD Retrofit")), "VSD Retrofit", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YB Style")), "YB", dataset['product_name'])
+    
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCAS ")), "YCAS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCAS0")), "YCAS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCAV")), "YCAV", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCIV")), "YCIV", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCRS")), "YCRS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YCWS")), "YCWS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YDAS ")), "YDAS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YG & YB")), "YG,YB", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YK")), "YK", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YMC2")), "YMC2", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YR Style")), "YR", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("York Remote Chiller Communications")), "York Guardian Service and York Remote Chiller Communications", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("York OM Refrigerant Transfer Unit and Pumpout Receiver")), "York OM Refrigerant Transfer Unit and Pumpout Receiver", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YS ")), "YS", dataset['product_name'])
+    dataset['product_name'] = np.where((dataset['product_name'] == "") & (dataset['document_title'].str.contains("YT ")), "YT", dataset['product_name'])
+    
+
+    dataset = dataset.drop_duplicates()
     
     
     dataset.to_csv("documents_splitted_products.csv",  encoding='utf-8-sig', index=False)
     
+    
+    
     return dataset
     
+
+
+
+
+
+
+
+
+
+
+
     
-data = clean_products_splitter("documents_cleaned.csv")    
+data = clean_products_splitter("documents_gaps_filled.csv")    
+
+
 
 
 # ERRATIC CHECK
-#dataset = pd.read_csv("documents_cleaned.csv", encoding='utf-8-sig')
-#erratic = dataset[dataset['product_code'].str.contains('\|')]
+dataset = pd.read_csv("documents_splitted_products.csv", encoding='utf-8-sig')
+error = dataset [dataset['product_name'].isnull() ]
+
     
     
     
