@@ -20,7 +20,10 @@ def erratic_document_remover(dataset):
     dataset = dataset[~dataset['document_title'].str.contains('.indd')]
     dataset = dataset[~dataset['document_title'].str.contains('.book')]
     dataset = dataset[~dataset['document_title'].str.contains('untitled')]
+    dataset = dataset[~dataset['document_title'].str.contains('Untitled')]
     dataset = dataset[~dataset['document_title'].str.contains('Microsoft Word - ')]
+    dataset = dataset[~dataset['document_title'].str.contains('Heading1')]
+    dataset = dataset[~dataset['document_title'].str.contains('JCI Data Sheet Template Letter Rev. 06')]
     
     # REMOVE ANSUL TEMPLATE SHEETS
     
