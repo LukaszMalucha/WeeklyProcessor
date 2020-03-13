@@ -87,6 +87,10 @@ dataset_products = dataset_products.replace(np.nan, "Not Specified", regex=True)
 unique_products = list(dataset_products['product_identifier'].unique())
 
 
+tryit = dataset_products[dataset_products['brand'] == "Not Specified"]
+
+
+
 dataset_products.to_csv("dataset_products.csv",  encoding='utf-8-sig', index=False)
 
 

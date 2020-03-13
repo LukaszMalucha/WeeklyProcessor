@@ -10,6 +10,7 @@ import pandas as pd
 
 
 # COLUMN CLEANERS ARE SEPRATED TO FILES
+
 from column_cleaners.column_remover import column_remover
 from column_cleaners.meta_various_cleaner import meta_various_cleaner
 
@@ -29,7 +30,8 @@ from column_cleaners.product_code_splitter import product_code_splitter
 from column_cleaners.duplicate_columns_cleaner import duplicate_columns_cleaner
 from column_cleaners.brand_series_matcher import brand_series_matcher
 
-
+# ERRORS FOUND IN FURTHER CLEANING PROCESS
+from column_cleaners.erratic_document_remover import erratic_document_remover
 
 column_order = [
             "topic_title",
@@ -72,6 +74,9 @@ def dataset_cleaner(filename):
     """
     
     dataset = pd.read_csv(filename, encoding='utf-8-sig')
+    
+
+    
     
 #   Administrative - dropping columns, renaming, simple tasks
     dataset = column_remover(dataset)
@@ -126,6 +131,8 @@ def dataset_cleaner(filename):
 #   Drop duplicate rows if any    
     dataset.drop_duplicates()
     
+    dataset = erratic_document_remover(dataset)
+    
     
 #    ## SAVE AS JSON    
 #    dataset.to_json('documents_cleaned.json', orient='records', lines=True)
@@ -144,8 +151,6 @@ data = dataset_cleaner("documents_processed.csv")
 
 
 dataset = pd.read_csv("documents_cleaned.csv", encoding='utf-8-sig')
-
-
 
 
 
