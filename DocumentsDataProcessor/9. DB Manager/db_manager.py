@@ -146,17 +146,18 @@ dataset_topics = dataset_topics[dataset_topics['topic_title'] != dataset_topics[
 # Check
 erratic = dataset_topics[dataset_topics['breadcrumb'] == "nan"]
 
-
-dataset_topics['topic_depth'] = dataset_topics['breadcrumb'].apply(lambda x: breadcrumb_depth(x))
+#
 dataset_topics['topic_parent'] = dataset_topics['breadcrumb'].apply(lambda x: breadcrumb_parent(x))   
+dataset_topics['topic_depth'] = dataset_topics['breadcrumb'].apply(lambda x: breadcrumb_depth(x))
+
 
 
 dataset_topics = dataset_topics.drop(['document_title'], axis=1)
-dataset_topics = dataset_topics.drop(['breadcrumb'], axis=1)
+#dataset_topics = dataset_topics.drop(['breadcrumb'], axis=1)
 
 dataset_topics = dataset_topics.drop_duplicates()
 
-dataset_topics = dataset_topics[['topic_title','topic_parent', 'topic_depth','document_last_edition', 'document_link', 'document_identifier' ]]
+dataset_topics = dataset_topics[['topic_title','breadcrumb','topic_depth','document_last_edition', 'document_link', 'document_identifier' ]]
 
 
 dataset_topics.to_csv("dataset_topics.csv",  encoding='utf-8-sig', index=False)
