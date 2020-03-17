@@ -9,42 +9,6 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 
 
-# Helper functions to create a list of dates for 2019 - So far it's Feb
-def create_annual_list_2018():
-	annual_list = []
-	for m in range(1,10):
-		for d in range(1, 10):
-			annual_list.append(f'2018-0{m}-0{d}_2018-0{m}-0{d}')
-		for d in range(10, 32):
-			annual_list.append(f'2018-0{m}-{d}_2018-0{m}-{d}')   
-			
-	for m in range(10,13):
-		for d in range(1, 10):
-			annual_list.append(f'2018-{m}-0{d}_2018-{m}-0{d}')
-		for d in range(10, 32):
-			annual_list.append(f'2018-{m}-{d}_2018-{m}-{d}')    
-
-	annual_list = sorted(annual_list)
-
-	return annual_list
-
-def create_annual_list_2019():	
-	annual_list = []
-	for m in range(1,3):
-		for d in range(1, 10):
-			annual_list.append(f'2019-0{m}-0{d}_2019-0{m}-0{d}')
-		for d in range(10, 32):
-			annual_list.append(f'2019-0{m}-{d}_2019-0{m}-{d}')   
-	for m in range(7,8):
-		for d in range(1, 10):
-			annual_list.append(f'2018-{m}-0{d}_2018-{m}-0{d}')
-		for d in range(10, 32):
-			annual_list.append(f'2018-{m}-{d}_2018-{m}-{d}')		
-	   
-
-	annual_list = sorted(annual_list)
-
-	return annual_list
 
 
 ## AVOID HANDSHAKE ERRORS
@@ -58,16 +22,19 @@ class Year2019Spider(scrapy.Spider):
 	allowed_domains = ['johnsoncontrols.fluidtopics.net']
 	start_urls = ['http://johnsoncontrols.fluidtopics.net/']
 
-	annual_list_2019 = (create_annual_list_2019())
+	annual_list = ['2018-01-01_2018-01-01', '2018-06-11_2018-06-11', '2018-07-02_2018-07-02', 
+					'2018-08-24_2018-08-24', '2018-09-21_2018-09-21', '2018-10-09_2018-10-09', 
+					'2018-10-10_2018-10-10', '2018-10-11_2018-10-11', '2018-11-13_2018-11-13', 
+					'2019-01-10_2019-01-10', '2019-02-12_2019-02-12','2019-07-24_2019-07-24']
 
 	# Year 2019 has to be scraped monthly
 	def parse(self, response):
 		self.driver = webdriver.Chrome(str(Path(Path.cwd(), "chromedriver.exe")), chrome_options=options)
 		self.driver.set_window_size(1920, 800)
 		self.driver.get('http://johnsoncontrols.fluidtopics.net/')
-		sleep(20)
+		sleep(12)
 
-		for date in self.annual_list_2019:
+		for date in self.annual_list:
 			self.driver.get(
 				f'https://johnsoncontrols.fluidtopics.net/search/all?query=zettler&filters=brand~%2522Zettler%2522&period=custom_{date}&content-lang=en-US')
 			sleep(6)
@@ -79,14 +46,14 @@ class Year2019Spider(scrapy.Spider):
 				for i in range(page_loads):
 					body = self.driver.find_element_by_css_selector('body')
 					body.send_keys(Keys.END)
-					sleep(0.5)
+					sleep(1)
 					try:
 						button = self.driver.find_element_by_xpath(
 							'//button[contains(@class, "searchpager-load-more-button")]')
 						button.click()
 					except:
 						pass
-					sleep(0.5)
+					sleep(1)
 
 				sel = Selector(text=self.driver.page_source)
 				document_cards = sel.xpath('//*[contains(@class, "searchresult-new-component")]')
@@ -95,7 +62,11 @@ class Year2019Spider(scrapy.Spider):
 					l = ItemLoader(item=FluidTopicsItem(), selector=card)
 					title = card.xpath('.//*[@class="searchresult-title"]/a/span/text()').extract_first()
 					created_at = date[11:]
-					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()
+					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()					
+					breadcrumb_path = card.xpath('.//*[@class="searchresult-breadcrumb"]/span/text()').extract()
+					breadcrumb = ""
+					if breadcrumb_path:
+						breadcrumb = '> '.join(breadcrumb_path)
 					metadata = card.xpath('.//*[@class="metadata-list"]/li/@title').extract()
 					metadata_list = []
 					if metadata:
@@ -106,5 +77,6 @@ class Year2019Spider(scrapy.Spider):
 					l.add_value('title', title)
 					l.add_value('created_at', created_at)
 					l.add_value('link', link)
+					l.add_value('breadcrumb', breadcrumb)
 					l.add_value('metadata', metadata_list)
 					yield l.load_item()

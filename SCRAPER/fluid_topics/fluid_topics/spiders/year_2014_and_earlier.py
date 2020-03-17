@@ -49,14 +49,14 @@ class YearsTo2017Spider(scrapy.Spider):
 				for i in range(page_loads):
 					body = self.driver.find_element_by_css_selector('body')
 					body.send_keys(Keys.END)
-					sleep(0.5)
+					sleep(1)
 					try:
 						button = self.driver.find_element_by_xpath(
 							'//button[contains(@class, "searchpager-load-more-button")]')
 						button.click()
 					except:
 						pass
-					sleep(0.5)
+					sleep(1)
 
 				sel = Selector(text=self.driver.page_source)
 				document_cards = sel.xpath('//*[contains(@class, "searchresult-new-component")]')
@@ -65,7 +65,11 @@ class YearsTo2017Spider(scrapy.Spider):
 					l = ItemLoader(item=FluidTopicsItem(), selector=card)
 					title = card.xpath('.//*[@class="searchresult-title"]/a/span/text()').extract_first()
 					created_at = date[11:]
-					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()
+					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()					
+					breadcrumb_path = card.xpath('.//*[@class="searchresult-breadcrumb"]/span/text()').extract()
+					breadcrumb = ""
+					if breadcrumb_path:
+						breadcrumb = '> '.join(breadcrumb_path)
 					metadata = card.xpath('.//*[@class="metadata-list"]/li/@title').extract()
 					metadata_list = []
 					if metadata:
@@ -76,5 +80,6 @@ class YearsTo2017Spider(scrapy.Spider):
 					l.add_value('title', title)
 					l.add_value('created_at', created_at)
 					l.add_value('link', link)
+					l.add_value('breadcrumb', breadcrumb)
 					l.add_value('metadata', metadata_list)
 					yield l.load_item()

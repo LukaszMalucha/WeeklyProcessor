@@ -90,4 +90,4 @@ HTTPCACHE_EXPIRATION_SECS = 60 * 60 * 24
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-FEED_EXPORT_FIELDS = ['title','created_at','link','metadata']
+FEED_EXPORT_FIELDS = ['title','created_at','breadcrumb','link','metadata']

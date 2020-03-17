@@ -1,13 +1,15 @@
-Date: Thu, 27 Feb 2020 12:33:26 GMT
+Date: Thu, 05 Mar 2020 13:59:06 GMT
 Vary: Accept-Encoding
+Ft-Called-App: ft/server
 Content-Encoding: gzip
+Ft-Called-App-Version: 3.7.15:d60a81e57867ab7b67b45549a347691b4b7538e5
 Content-Type: text/html
-Set-Cookie: PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InNlc3Npb24taWQtNzAwNjAtc3RhYmxlIjoiYTkwM2NjYWEtZmUxMi00ZDIyLThkNjEtYmU0ZjQ2ZmQwZGQxIn0sIm5iZiI6MTU4MjgwNjgwNiwiaWF0IjoxNTgyODA2ODA2fQ.HDnmcnAXnJen4I63xOM9e2JMnkUNpeBvwRExQJnaf3o; Path=/; HTTPOnly
+Set-Cookie: PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InNlc3Npb24taWQtNzAwNjAtc3RhYmxlIjoiNDIwYTk0NjYtYzUyZC00MjgwLWIwZTMtMDA5NTFmMTJiMmI0In0sIm5iZiI6MTU4MzQxNjc0NiwiaWF0IjoxNTgzNDE2NzQ2fQ.auP2f7lPZnWXQqOvXsweUX8Ef2fv1PrYjn-zmCmBzbg; Path=/; HTTPOnly
 Set-Cookie: ft-ui-locale=en-US; Path=/
 Set-Cookie: ft-content-locale=en-US; Path=/
 Set-Cookie: ft-content-locale-choice-type=DEFAULT; Path=/
 Set-Cookie: ft-ui-locale-choice-type=DEFAULT; Path=/
-Set-Cookie: FLUIDTOPICS_SESSION=!YzhxM25OJnoCfkY1hYNsC2FvoEVhPJkvkPEl0lDimsc12d1uqGMwlerTrPIOeerbOm43dptkkzPu+LM=; path=/
+Set-Cookie: FLUIDTOPICS_SESSION=!BMB6t5ya0YH9rMA1hYNsC2FvoEVhPETXLuijktY/gpeBH6OR/xM8I2Y5FlxmZ70whXr0MJIgHhG7hEY=; path=/
 X-Content-Type-Options: nosniff
 X-Xss-Protection: 1; mode=block
 X-Frame-Options: sameorigin

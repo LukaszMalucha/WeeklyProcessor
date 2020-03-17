@@ -12,7 +12,7 @@ from time import sleep
 # Helper functions to create a list of dates for 2020 - So far it's Feb
 def create_annual_list_2020():
 	annual_list = []
-	for i in range(1, 3):
+	for i in range(1, 4):
 		for d in range(1, 10):
 			annual_list.append(f'2020-0{i}-0{d}_2020-0{i}-0{d}')
 	for i in range(1, 3):
@@ -54,14 +54,14 @@ class Year2020Spider(scrapy.Spider):
 				for i in range(page_loads):
 					body = self.driver.find_element_by_css_selector('body')
 					body.send_keys(Keys.END)
-					sleep(0.5)
+					sleep(1)
 					try:
 						button = self.driver.find_element_by_xpath(
 							'//button[contains(@class, "searchpager-load-more-button")]')
 						button.click()
 					except:
 						pass
-					sleep(0.5)
+					sleep(1)
 
 				sel = Selector(text=self.driver.page_source)
 				document_cards = sel.xpath('//*[contains(@class, "searchresult-new-component")]')
@@ -70,7 +70,11 @@ class Year2020Spider(scrapy.Spider):
 					l = ItemLoader(item=FluidTopicsItem(), selector=card)
 					title = card.xpath('.//*[@class="searchresult-title"]/a/span/text()').extract_first()
 					created_at = date[11:]
-					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()
+					link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()					
+					breadcrumb_path = card.xpath('.//*[@class="searchresult-breadcrumb"]/span/text()').extract()
+					breadcrumb = ""
+					if breadcrumb_path:
+						breadcrumb = '> '.join(breadcrumb_path)
 					metadata = card.xpath('.//*[@class="metadata-list"]/li/@title').extract()
 					metadata_list = []
 					if metadata:
@@ -81,5 +85,6 @@ class Year2020Spider(scrapy.Spider):
 					l.add_value('title', title)
 					l.add_value('created_at', created_at)
 					l.add_value('link', link)
+					l.add_value('breadcrumb', breadcrumb)
 					l.add_value('metadata', metadata_list)
 					yield l.load_item()

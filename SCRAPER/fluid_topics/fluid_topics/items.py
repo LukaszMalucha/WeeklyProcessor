@@ -11,5 +11,6 @@ import scrapy
 class FluidTopicsItem(scrapy.Item):
 	title = scrapy.Field()
 	created_at = scrapy.Field()
+	breadcrumb = scrapy.Field()
 	link = scrapy.Field()
 	metadata = scrapy.Field()

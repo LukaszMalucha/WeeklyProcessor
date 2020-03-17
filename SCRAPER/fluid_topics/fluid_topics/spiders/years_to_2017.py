@@ -11,13 +11,13 @@ from time import sleep
 
 # Helper function to create dates list:
 def create_history_list():
-    date_list = []
-    date_list.append('1896-01-01_1999-12-31')
-    for i in range(0, 10):
-        date_list.append(f'200{i}-01-01_200{i}-12-31')
-    for i in range(10, 18):
-        date_list.append(f'20{i}-01-01_20{i}-12-31')
-    return date_list
+	date_list = []
+	date_list.append('1896-01-01_1999-12-31')
+	for i in range(0, 10):
+		date_list.append(f'200{i}-01-01_200{i}-12-31')
+	for i in range(10, 18):
+		date_list.append(f'20{i}-01-01_20{i}-12-31')
+	return date_list
 
 
 ## AVOID HANDSHAKE ERRORS
@@ -27,52 +27,57 @@ options.add_argument('--ignore-ssl-errors')
 
 
 class YearsTo2017Spider(scrapy.Spider):
-    name = 'years_to_2017'
-    allowed_domains = ['johnsoncontrols.fluidtopics.net']
-    start_urls = ['http://johnsoncontrols.fluidtopics.net/']
+	name = 'years_to_2017'
+	allowed_domains = ['johnsoncontrols.fluidtopics.net']
+	start_urls = ['http://johnsoncontrols.fluidtopics.net/']
 
-    history_list = (create_history_list())
+	history_list = (create_history_list())
 
-    def parse(self, response):
-        self.driver = webdriver.Chrome(str(Path(Path.cwd(), "chromedriver.exe")), chrome_options=options)
+	def parse(self, response):
+		self.driver = webdriver.Chrome(str(Path(Path.cwd(), "chromedriver.exe")), chrome_options=options)
 
-        for date in self.history_list:
-            self.driver.get(
-                f'https://johnsoncontrols.fluidtopics.net/search/all?period=custom_{date}&sort=last_update&content-lang=en-US')
-            sleep(6)
-            page = Selector(text=self.driver.page_source)
+		for date in self.history_list:
+			self.driver.get(
+				f'https://johnsoncontrols.fluidtopics.net/search/all?period=custom_{date}&sort=last_update&content-lang=en-US')
+			sleep(6)
+			page = Selector(text=self.driver.page_source)
 
-            document_count = page.xpath('//*[@class="info-results-count"]/@data-results-count').extract_first()
-            page_loads = int(int(document_count) / 20) + 1
-            for i in range(page_loads):
-                body = self.driver.find_element_by_css_selector('body')
-                body.send_keys(Keys.END)
-                # sleep(1)
-                try:
-                    button = self.driver.find_element_by_xpath(
-                        '//button[contains(@class, "searchpager-load-more-button")]')
-                    button.click()
-                except:
-                    pass
-                sleep(1)
+			document_count = page.xpath('//*[@class="info-results-count"]/@data-results-count').extract_first()
+			page_loads = int(int(document_count) / 20) + 1
+			for i in range(page_loads):
+				body = self.driver.find_element_by_css_selector('body')
+				body.send_keys(Keys.END)
+				sleep(1)
+				try:
+					button = self.driver.find_element_by_xpath(
+						'//button[contains(@class, "searchpager-load-more-button")]')
+					button.click()
+				except:
+					pass
+				sleep(1)
 
-            sel = Selector(text=self.driver.page_source)
-            document_cards = sel.xpath('//*[contains(@class, "searchresult-new-component")]')
+			sel = Selector(text=self.driver.page_source)
+			document_cards = sel.xpath('//*[contains(@class, "searchresult-new-component")]')
 
-            for card in document_cards:
-                l = ItemLoader(item=FluidTopicsItem(), selector=card)
-                title = card.xpath('.//*[@class="searchresult-title"]/a/span/text()').extract_first()
-                created_at = date[11:]
-                link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()
-                metadata = card.xpath('.//*[@class="metadata-list"]/li/@title').extract()
-                metadata_list = []
-                if metadata:
-                    for element in metadata:
-                        element = element.replace(",", " |")
-                        metadata_list.append(element)
+			for card in document_cards:
+				l = ItemLoader(item=FluidTopicsItem(), selector=card)
+				title = card.xpath('.//*[@class="searchresult-title"]/a/span/text()').extract_first()
+				created_at = date[11:]
+				link = card.xpath('.//*[@class="searchresult-title"]/a/@href').extract_first()                  
+				breadcrumb_path = card.xpath('.//*[@class="searchresult-breadcrumb"]/span/text()').extract()
+				breadcrumb = ""
+				if breadcrumb_path:
+					breadcrumb = '> '.join(breadcrumb_path)
+				metadata = card.xpath('.//*[@class="metadata-list"]/li/@title').extract()
+				metadata_list = []
+				if metadata:
+					for element in metadata:
+						element = element.replace(",", " |")
+						metadata_list.append(element)
 
-                l.add_value('title', title)
-                l.add_value('created_at', created_at)
-                l.add_value('link', link)
-                l.add_value('metadata', metadata_list)
-                yield l.load_item()
+				l.add_value('title', title)
+				l.add_value('created_at', created_at)
+				l.add_value('link', link)
+				l.add_value('breadcrumb', breadcrumb)
+				l.add_value('metadata', metadata_list)
+				yield l.load_item()
