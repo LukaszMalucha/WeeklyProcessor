@@ -17,8 +17,8 @@ def category_cleaner(dataset):
     dataset['product_category'] = dataset['product_category'].str.replace(", and ", ",")
     dataset['product_category'] = dataset['product_category'].str.replace("EAS Tag / Label", "EAS Tag/Label")
     dataset['product_category'] = dataset['product_category'].str.replace("other choices available", "")
-    dataset['product_category'] = dataset['product_category'].str.replace("(", "")
-    dataset['product_category'] = dataset['product_category'].str.replace(")", "")
+    dataset['product_category'] = dataset['product_category'].str.replace("\(", "")
+    dataset['product_category'] = dataset['product_category'].str.replace("\)", "")
     dataset['product_category'] = dataset['product_category'].str.strip()
     
     

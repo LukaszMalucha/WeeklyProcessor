@@ -16,8 +16,8 @@ def business_cleaner(dataset):
     
     # REMOVE (OTHER CHOICES AVAILABLE)    
     dataset['Business'] = dataset['Business'].str.replace("other choices available", "")
-    dataset['Business'] = dataset['Business'].str.replace("(", "")
-    dataset['Business'] = dataset['Business'].str.replace(")", "")
+    dataset['Business'] = dataset['Business'].str.replace("\(", "")
+    dataset['Business'] = dataset['Business'].str.replace("\)", "")
     dataset['Business'] = dataset['Business'].str.strip()
     
     dataset['business'] = dataset['Business']

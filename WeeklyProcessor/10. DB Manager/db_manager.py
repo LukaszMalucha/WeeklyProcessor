@@ -56,9 +56,12 @@ def get_form_id(string):
     return "Not Specified"
 
 
-#dataset = pd.read_csv("documents_unique_document_id.csv", encoding='utf-8-sig')
     
 dataset = pd.read_csv("9_documents_fixed_topics.csv", encoding='utf-8-sig')
+
+
+#find_empty_brands = dataset[dataset['brand'] == "Not Specified"]
+#err = dataset[dataset['product_category'].str.len() > 250]
 
 brands = list(dataset['brand'].unique())
 
@@ -76,6 +79,10 @@ dataset_products = dataset[['product_name', 'brand', 'product_category',
 
 dataset_products = dataset_products.drop_duplicates()
 
+# Duplicate Check
+#dataset_products['duplicates'] = dataset_products.duplicated(subset=['product_identifier'])
+#find_duplicates = dataset_products[dataset_products['product_identifier'] == "eed9c6c25022273917e24a26159371e5438bec12"]
+#find_duplicates_2 = dataset_products[dataset_products['product_identifier'] == "99481fc08ff8e7e99f643f816ae0ceed73bf5e63"]
 
 
 
@@ -124,6 +131,7 @@ dataset_documents = dataset_documents.sort_values('document_created_at').drop_du
 
 dataset_documents = dataset_documents.drop_duplicates()
 
+# DUPLICATE CHECK
 #unique_documents = list(dataset_documents['document_identifier'].unique())
 #dataset_documents['duplicate'] = dataset_documents.duplicated(subset=['document_identifier'])
 #docs_duplicates = dataset_documents[dataset_documents['duplicate'] == True]
@@ -153,9 +161,17 @@ dataset_topics['topic_depth'] = dataset_topics['breadcrumb'].apply(lambda x: bre
 
 
 dataset_topics = dataset_topics.drop(['document_title'], axis=1)
-#dataset_topics = dataset_topics.drop(['breadcrumb'], axis=1)
+
+
+
 
 dataset_topics = dataset_topics.drop_duplicates()
+
+
+# DUPLICATE CHECK
+#dataset_topics['duplicate'] = dataset_topics.duplicated(subset=['document_link'])
+#err_topic = dataset_topics[dataset_topics['document_link'].str.contains("IRZ7tPELYmifNprT~CFGCQ")]
+
 
 dataset_topics = dataset_topics[['topic_title','breadcrumb','topic_depth','document_last_edition', 'document_link', 'document_identifier' ]]
 
@@ -235,36 +251,37 @@ missing_id_list = np.setdiff1d(unique_topics,unique_documents, assume_unique=Tru
 
 
 
-
-
+dataset_products['asd'] = dataset_products.duplicated(subset=['product_identifier'])
+find_duplicates = dataset_products[dataset_products['product_identifier'] == "eed9c6c25022273917e24a26159371e5438bec12"]
+find_duplicates_2 = dataset_products[dataset_products['product_identifier'] == "99481fc08ff8e7e99f643f816ae0ceed73bf5e63"]
 
 """
 FRONTEND INFO
 """
-
-dataset = pd.read_csv("documents_unique_document_id.csv", encoding='utf-8-sig')
-
-
-dataset.product_name.str.len().max()  # 140 chars
-dataset.brand.str.len().max()
-dataset.product_series.str.len().max()
-dataset.product_category.str.len().max()
-dataset.product_code.str.len().max()
-dataset.product_part_number.str.len().max()
-dataset.business.str.len().max()
-
-
-len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam loro")
-
-
-
-len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlaboreto")
-
-len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam loro All TM and VSD Model OptiSpeed Compressor Drives Gate Driver Test Mode, Drives and Starters")
-
-
-tryit = dataset[dataset['topic_title'] == "Input and Output terminals"]
-
+#
+#dataset = pd.read_csv("documents_unique_document_id.csv", encoding='utf-8-sig')
+#
+#
+#dataset.product_name.str.len().max()  # 140 chars
+#dataset.brand.str.len().max()
+#dataset.product_series.str.len().max()
+#dataset.product_category.str.len().max()
+#dataset.product_code.str.len().max()
+#dataset.product_part_number.str.len().max()
+#dataset.business.str.len().max()
+#
+#
+#len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam loro")
+#
+#
+#
+#len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlaboreto")
+#
+#len("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utlabore et dolore magna aliqua. Ut enim ad minim veniam loro All TM and VSD Model OptiSpeed Compressor Drives Gate Driver Test Mode, Drives and Starters")
+#
+#
+#tryit = dataset[dataset['topic_title'] == "Input and Output terminals"]
+#
 
 
 

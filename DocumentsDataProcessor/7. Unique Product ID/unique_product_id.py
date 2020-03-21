@@ -70,9 +70,7 @@ def unique_product_id(filename):
     
     
     # PRODUCT CATEGORIES
-    dataset['product_category'] = dataset['product_category'].str.replace("DN40,DN50", "DN40,DN50")
-    
-    
+    dataset['product_category'] = dataset['product_category'].str.replace("DN40,DN50", "DN40,DN50")  
     
     # TYCO FIX
     
@@ -387,6 +385,16 @@ def unique_product_id(filename):
     dataset = dataset.drop_duplicates()
     
     
+    
+    
+    """
+    SHORTEN LONG PRODUCT CATEGORIES
+    """
+    dataset['product_category'] = np.where((dataset['brand'] == "Tyco") & (dataset['product_category'].str.contains("Deluge Fire Protection System")), "Deluge Fire Protection System, Deluge System Valves and Accessories", dataset['brand'])
+    dataset['product_category'] = np.where((dataset['brand'] == "Tyco") & (dataset['product_category'].str.contains("Flange Adapters, Flexible Reducing Coupling, Gasket Service Recommendations")), "Gasket Service Recommendations, Grooved Products", dataset['brand'])
+    dataset['product_category'] = np.where(dataset['product_name'].str.contains("exacqVision Professional and Enterprise"), "VMS Software", dataset['product_category'])
+    dataset['product_category'] = np.where(dataset['product_name'].str.contains("Johnson Controls Enterprise Management"), "Connected Offerings, Digital Solutions, Software Application", dataset['product_category'])
+    
     """
     CREATING UNIQUE IDENTIFIER FOR ALL PRODUCTS
     first part of name + created_id + first three letters of brand ...
@@ -409,10 +417,23 @@ def unique_product_id(filename):
     dataset['product_identifier'] = dataset['product_name'] + "-" + dataset['brand'] +  "-" + dataset['product_code_first']  + "-" + dataset['product_series'] + "-" + dataset['business']                
     dataset['product_identifier'] = dataset['product_identifier'].apply(lambda x: hashlib.sha1(str.encode(x)).hexdigest())
     
+    
+    
+    
+    
+    
+    
+    
+    
     # CHECK
 #    product_id_unique = list(dataset['product_identifier'].unique())
     
     dataset = dataset.drop(['product_code_first'], axis=1)
+    
+    
+    
+    
+    
 
     
     
@@ -427,15 +448,17 @@ def unique_product_id(filename):
 
 
 
-data = unique_product_id("6_documents_sorted_products.csv") 
+dataset = unique_product_id("6_documents_sorted_products.csv") 
 
 
 
 
 
 
-
-
+# CHECK
+dataset['duplicates'] = dataset.duplicated(subset=['product_identifier'])
+find_duplicates = dataset[dataset['product_identifier'] == "eed9c6c25022273917e24a26159371e5438bec12"]
+find_duplicates_2 = dataset[dataset['product_identifier'] == "99481fc08ff8e7e99f643f816ae0ceed73bf5e63"]
 
 
 

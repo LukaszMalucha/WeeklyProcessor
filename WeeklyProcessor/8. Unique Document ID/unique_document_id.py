@@ -353,6 +353,15 @@ def unique_document_id(filename):
     dataset['document_part_number'] = np.where(dataset['document_part_number'] == "Not Specified", dataset['document_number'], dataset['document_part_number'])
     
     
+    """
+    REMOVE EMPTY PARENTHESES FROM DOC NUMBER AND DOC PART NUMBER
+    """
+
+    dataset['document_number'] = dataset['document_number'].str.replace("\(\)", "")
+    dataset['document_part_number'] = dataset['document_part_number'].str.replace("\(\)", "")
+    
+    
+    
     
     """
     DOCUMENT UNIQUE IDENTIFIER
@@ -401,6 +410,9 @@ dataset = unique_document_id('7_documents_unique_product_id.csv')
     
 
 # COMPARISON CHECK
+
+dataset = pd.read_csv('8_documents_unique_document_id.csv', encoding='utf-8-sig')
+data = dataset[dataset['document_number'].str.contains("\(\)")]
 document_id_unique = list(dataset['document_identifier'].unique())
 docs = dataset[dataset['topic_title'] == dataset['document_title']]
 docs = docs.drop_duplicates()

@@ -46,6 +46,9 @@ def fill_brand_and_product_gaps(filename):
     """
        
     dataset = pd.read_csv(filename, encoding='utf-8-sig')
+    
+        
+    
         
     dataset['get_name'] = np.where(dataset['product_name'] == "Not Specified", dataset['document_title'], "Not Specified")
     
@@ -57,7 +60,29 @@ def fill_brand_and_product_gaps(filename):
     dataset['get_name'] = dataset['get_name'].apply(lambda x: remove_si(x))
     dataset['get_name'] = dataset['get_name'].apply(lambda x: software_enhancements_split(x))
     
+    tryit = dataset[dataset['topic_title'].str.contains("-3S Series")]
+    
     # REPLACE
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerants -12, -22 and 502", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerants -12, -22, and 502", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerants -12 and -22", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerants -12, -22, 502 and -717", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerants -12, -22, 502 and -717", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Refrigerant -22, SS42A, SS62A, SS82A", "")
+    
+    
+    dataset['get_name'] = dataset['get_name'].str.replace(" Installation Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Operation and Maintenance", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Operating Instructions", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" User’s Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Express User Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Service Instructions ", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Administration Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("General Specifications", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Replacement Procedure Small Tonnage (SI0198)", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Assembly Installation Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Networks Installation Instructions and Troubleshooting Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(", and", " and ")
     dataset['get_name'] = dataset['get_name'].str.replace("ALL Liquid Cooled Solis State Starters Troubleshooting Output Current Imbalance ", "Liquid Cooled Solis State Starters")
     dataset['get_name'] = dataset['get_name'].str.replace("User’s: Introduction to Facility Explorer Administrator Tool for Validated Environments", "")
     dataset['get_name'] = dataset['get_name'].str.replace(". Module Installation and Programming Instructions", "")
@@ -99,6 +124,7 @@ def fill_brand_and_product_gaps(filename):
     dataset['get_name'] = dataset['get_name'].str.replace(" Application Note", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Installation", "")
     dataset['get_name'] = dataset['get_name'].str.replace("Technical Guide: ", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Integration Guide", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Guide: ", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Help: ", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Help", "")
@@ -113,7 +139,6 @@ def fill_brand_and_product_gaps(filename):
     dataset['get_name'] = dataset['get_name'].str.replace("Submittal Data Sheet: ", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Check Sheet", "")
     dataset['get_name'] = dataset['get_name'].str.replace("Installation Instructions for ", "")
-    dataset['get_name'] = dataset['get_name'].str.replace(" Guide", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Checklist", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Appendices", "")
     dataset['get_name'] = dataset['get_name'].str.replace("Part Number Corrections for ", "")
@@ -164,6 +189,27 @@ def fill_brand_and_product_gaps(filename):
     dataset['get_name'] = dataset['get_name'].str.replace(" Specialfor Mix-Match Units", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" Correction for Part Number to Fuses Used in 1278A HYP Model VSD", "")
     dataset['get_name'] = dataset['get_name'].str.replace(" - Solution and Refrigerant Charges", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Guide", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Cutout Template", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Application Integration", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Submittal Sheet", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Renewal Parts Manual", "Renewal Parts")
+    dataset['get_name'] = dataset['get_name'].str.replace("Outputs", "Output")
+    dataset['get_name'] = dataset['get_name'].str.replace("Output", "Outputs")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Assembly", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Subassembly", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Catalog Page", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Transducers", "Transducer")
+    dataset['get_name'] = dataset['get_name'].str.replace("Transducer", "Transducers")
+    dataset['get_name'] = dataset['get_name'].str.replace("Controllers", "Controller")
+    dataset['get_name'] = dataset['get_name'].str.replace("Controller", "Controllers")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Assembly", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("- Metastat", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Bulletin", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" Compatibility Chart", "")
+    dataset['get_name'] = dataset['get_name'].str.replace("Installation Manual: ", "")
+    dataset['get_name'] = dataset['get_name'].str.replace(" - Listings and Approvals", "")
+    
     
     
     
@@ -279,6 +325,13 @@ def fill_brand_and_product_gaps(filename):
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("C-7")), "Johnson Controls", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("C-9")), "Johnson Controls", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("CD-")), "Johnson Controls", dataset['brand'])
+    
+    
+    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/lGAyVRovyBLjhD9ZOCeYQQ", "Johnson Controls", dataset['brand'])
+    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/3vU~yz9aMbRGka0dz6UgRw", "Johnson Controls", dataset['brand'])
+    dataset['brand'] = np.where(dataset['document_link'] == "/viewer/document/hy16wOTDQOwUTrcR7y7itA", "Johnson Controls", dataset['brand'])
+    
+    
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("CSD")), "Johnson Controls", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("CSD")), "Johnson Controls", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("CTD")), "Johnson Controls", dataset['brand'])
@@ -372,10 +425,16 @@ def fill_brand_and_product_gaps(filename):
     
     # YORK
     
+    
+    
+    dataset['get_name'] = dataset['get_name'].str.replace("YK Compressors YDHA, YDHB and YDHG High Speed Forward Thrust (029-20896-002, 029-20900-002) and Journal Bearing (064-48207-000, 064-48208-000) Design Change, Compressor", "YK")
+    
+    
+    
+    
+    
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("YORK")), "YORK", dataset['brand'])
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("York")), "YORK", dataset['brand'])
-    
-    
     
     
     dataset['brand'] = np.where((dataset['brand'] == "Not Specified") & (dataset['get_name'].str.contains("Bitzer")), "YORK", dataset['brand'])
@@ -554,6 +613,13 @@ def fill_brand_and_product_gaps(filename):
     
     
     
+    """
+    CLEANINGS
+    """
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains('Installing Ferrite Beads with "Wired" MEDIA Cards'), "4020 Fire Alarm Control Panel, 4100 Fire Alarm Control Panel, 4120 Fire Alarm Control Panel, 4010ES Fire Alarm Control Panel", dataset['product_name'])
+    
+    
+    
     
     
     """
@@ -601,30 +667,121 @@ def fill_brand_and_product_gaps(filename):
     dataset['product_name'] = np.where(dataset['product_name'].str.contains("YR "), "YR Chillers", dataset['product_name'])
     dataset['product_name'] = np.where(dataset['product_name'].str.contains("YS "), "YR Chillers", dataset['product_name'])
     dataset['product_name'] = np.where(dataset['product_name'].str.contains("OM and YST Chillers"), "OM, YST", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YK High Speed Forward Thrust "), "YK", dataset['product_name'])
+    
+    
+    
+    
+    
     
     
     # OTHER FIX
-
+    
     dataset['product_name'] = np.where(dataset['product_name'].str.contains("AMB-2010 and AMB -1100 Anti-theft System Deactivator"), "AMB-2010  Anti-theft System Deactivator, AMB-1100 Anti-theft System Deactivator", dataset['product_name'])
     dataset['product_name'] = np.where(dataset['product_name'].str.contains("YS "), "YR Chillers", dataset['product_name'])
     dataset['product_name'] = np.where(dataset['product_name'] == "UltraMax System", "UltraMax Systems", dataset['product_name'])
     dataset['product_name'] = np.where(dataset['product_name'] == " 064-48207-000", "YK", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'] == " 4100/4120-Series VESDA Interface Cards", "4100,4120", dataset['product_name'])
+    
+    
+    # CLEAN RECREATED TITLES
+    
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("ADS/ADX"), "ADS,ADX", dataset['product_name'])
+    
+    
+    
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YCWS 0100-0140, 0180-0240 "), "YCWS", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YCAV 0569, 0639, 0679, 0719, 0739, 0819, 0889, 0969 "), "YCAV", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("York Model YDTL 108, 120, & 126"), "YDTL", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("SSS, MVSD, EMS Variable Speed Drive, 292 HP – 50 Hz, 400VAC, 351 HP – 60 Hz, 460VAC, 419 HP – 50 Hz, 400VAC, 424 HP – 60 Hz, 575VAC, 503 HP – 60 Hz, 460VAC, 608 HP – 60 Hz, 575VAC, Renewal"), "Variable Speed Drive", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YK Medium Voltage Variable Speed Drive"), "Variable Speed Drive", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YK Medium Voltage Variable Speed Drives"), "Variable Speed Drive", dataset['product_name'])
+    
+    
+    
+    tryit = dataset[dataset['product_name'].str.contains("APS-100")]
+    
+    
+    # PRODUCT UNIFICATION
+    
+    
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("APS-1000"), "APS-100 Exit Anti-Theft System", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains(" DACT"), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2081 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2081-9046 "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2084 Series"), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2084-9023 "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2098 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2098 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2098-9829C "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2099 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2099-9136 "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2190-9173 "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2901 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("2902 Series "), "Digital Alarm Communicating Transmitter", dataset['product_name'])
+    
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("36 Gallon "), "36 Gallon Bladder Tank and Foam Station", dataset['product_name'])
+    
+    
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YVAA Evaporator Freeze Damage Potential Due to Refrigerant Migration "), "YVAA", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Adj. Diff. Floating Switchover: Selecting Proper Differential"), "Accessories", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("All Chillers Parts Identification Requirements"), "Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("All Single Stage Centrifugal Chillers Condenser Waterbox Procedure"), "Centrifugal Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Application Considerations: Three-Way Valve Equal Percentage Flow Characteristic"), "Three-Way Valve", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Application and Data Server (ADS) and Extended Application and Data Server (ADX)"), "ADS, ADX", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Approved Discharge Devices For Use With Ansul Foam Concentrates"), "Ansul Foam Concentrates", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Centrifugal Chillers Long-Term Storage Requirements - Field Preparation Service Policy and Procedures"), "Centrifugal Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Cross-Reference of VT Series Threaded NPT Valves to VG7000 Series Valves"), "VT Series, VG7000 Series", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Cross-Reference of VT Series Union End Valves to VG7000 Series Valves"), "VT Series, VG7000 Series", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Cross-reference of V-7x16 Series Valves to VG7000 Series Valves"), "V-8 Series, VG7000 Series", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("CLK3502 Time Clock"), "CLK3502 Time Clock", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Effects of Moisture in Refrigerant Systems"), "Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Effects of Moisture in Refrigerant Systems"), "Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("F59 Series Two-Pole Liquid Level Switches Sump or Open Tank Float or Weight"), "F59 Series", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("FX-PC Series Controllers Enumeration Sets"), "FX Workbench", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Facility Explorer Administrator Tool for Validated Environments User’sIntroduction to Facility Explorer Administrator Tool for Validated Environments"), "Facility Explorer Administrator Tool", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("LonWorks® Network Thermostat"), "LonWorks Network Thermostat Controllers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Facility Explorer Supervisory Products Networking"), "FX20 Supervisory Controller, FX30E Supervisory Controller, FX60 and FX60E Supervisory Controller, FX Server, FX Workbench", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains('HF/HE "P" Series Compressors (HF52 O-Ring Kit) Renewal Parts Literature Supplement - 160.73-RP2 (LS01)(406)'), 'HF/HE P Series Compressors (HF52 O-Ring Kit) Renewal Parts', dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("CD15 to CD28"), "Relia Choice CD15 to CD28", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Foam Definitions For Use With Ansul Foam Concentrates"), "Foam Sprinkler Equipment", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("GRINNELL G-FIRE Gasket Service Recommendations for Fire Grooved Products"), "GRINNELL", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("J Series Electric Zone Valves — Two-Way Spring Closed Normally Closed"), "J Series Electric Zone Valves", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("CD15 to CD28"), "Relia Choice CD15 to CD28", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Mates Behavior Watch - ExacqVision Integration"), "VMS Software", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Model DPV-1 Dry Pipe Valve"), "Model DPV-1 Dry Pipe Valve", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("OM & YST "), "OM Chillers, YST Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Power Element Style Chart for Charged Temperature Elements and Bellows Pressure Elements"), "Electromechanical Pressure Control, Electromechanical Temperature Control", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Prevention of Electrostatic Discharges that Destroys Electronic Printed Circuit Boards Handling"), "Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Release of Flat Spring Washers for YK Centrifugal Liquid Chiller Compressor"), "YK Centrifugal Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Replacing a Local Device Manager"), "Wireless Device Manager BIM, Wireless Module BIX", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Screw and Scroll Compressors - System Clean Up Procedure After Compressor Burnout"), "Reciprocating, Screw Air Cooled, Screw Water Cooled, Scroll Air Cooled, Scroll Water Cooled", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Use of Oil Filters to Maintain Control System Air Quality"), "Oil Filters", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("Wiring Diagram - Field Connections Millennium Model YT Chillers (Style J) with Variable Speed Drive "), "YT Chillers", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YCAS Series F Compressors Error Regarding Priming Literature Supplement "), "YCAS", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YCAS0693; YCAS0773;"), "YCAS", dataset['product_name'])
+    dataset['product_name'] = np.where(dataset['product_name'].str.contains("YCAS0693EC-0953EC"), "YCAS", dataset['product_name'])
+    
+    
+    
+    dataset['product_name'] = dataset['product_name'].str.replace("Chiller,", "Chiller")
+    dataset['product_name'] = dataset['product_name'].str.replace(" Quick Reference", "")
+    dataset['product_name'] = dataset['product_name'].str.replace(" Catalog Page", "")
+    dataset['product_name'] = dataset['product_name'].str.replace("Ki ", "Kit")
+    dataset['product_name'] = dataset['product_name'].str.replace("Sensors", "Sensor")
+    dataset['product_name'] = dataset['product_name'].str.replace("Systems", "System")
+    dataset['product_name'] = dataset['product_name'].str.replace("Transmitters", "Transmitter")
+    dataset['product_name'] = dataset['product_name'].str.replace("Transducers", "Transducer")
+    dataset['product_name'] = dataset['product_name'].str.replace("Controllers", "Controller")
+    dataset['product_name'] = dataset['product_name'].str.replace("Chillers", "Chiller")
+    
+    dataset['product_name'] = dataset['product_name'].str.replace(" Renewal Parts", "")
+    
+    
     
     # DOUBLE SPACES
     dataset['product_name'] = dataset['product_name'].str.replace("  ", " ")
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    dataset['product_name'] = dataset['product_name'].str.replace("  ", " ")
     
     
     dataset['product_name'] = dataset['product_name'].str.strip()
@@ -640,25 +797,36 @@ def fill_brand_and_product_gaps(filename):
     
     return dataset
 
-
-
-
+#
+#
+#
 data = fill_brand_and_product_gaps("3_documents_cleaned.csv")
-
-
-
-
-# CHECK
+#
+#
+#
+#
+## CHECK
 dataset = pd.read_csv("4_documents_gaps_filled.csv", encoding='utf-8-sig')
 brands = list(data['brand'].unique())
 
 
-
-
-
-
-
-
+#tryit = dataset[dataset['product_name'].str.contains("Fan Control and Occupancy Sensing Capability")]
+#    
+#dataset_error = dataset[dataset['product_name'].str.len() > 250]     
+#product_unique = list(dataset['product_name'].unique())
+#product_unique = ", ".join(product_unique)
+#product_unique = product_unique.split(", ")
+#product_unique = list(set(product_unique))
+#    
+#    
+#product_error = []
+#
+#for string in product_unique:
+#    if len(string) > 40:
+#        product_error.append(string)
+#    
+#    
+    
 
 
 

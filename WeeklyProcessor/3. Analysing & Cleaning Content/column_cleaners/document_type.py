@@ -23,7 +23,7 @@ DOCUMENT TYPE COULD BE KEPT AS ONE TO MANY FIELD - FOR TIME BEING THEY'LL GET SE
 
 dataset['Document Type'] = dataset['Document Type'].str.replace("sensors and Initiating Devices", "Sensors and Initiating Devices")
 dataset['Document Type'] = dataset['Document Type'].str.replace(", and ", ",")
-dataset['Document Type'] = dataset['Document Type'].str.replace("/", ",")
+dataset['Document Type'] = dataset['Document Type'].str.replace("\/", ",")
 document_type_unique = list(dataset['Document Type'].unique())
 
 
